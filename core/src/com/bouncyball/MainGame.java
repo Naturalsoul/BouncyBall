@@ -1,33 +1,31 @@
 package com.bouncyball;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.assets.AssetManager;
+import com.bouncyball.Screens.BaseScreen;
+import com.bouncyball.Screens.LoadingScreen;
+import com.bouncyball.Screens.MenuScreen;
 
-public class MainGame extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
-	
-	@Override
-	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
-	}
+public class MainGame extends Game {
 
-	@Override
-	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
-	}
-	
-	@Override
-	public void dispose () {
-		batch.dispose();
-		img.dispose();
-	}
+    private AssetManager manager;
+
+    public BaseScreen loadingScreen, menuScreen;
+
+    @Override
+    public void create() {
+        manager = new AssetManager();
+
+        loadingScreen = new LoadingScreen(this);
+        setScreen(loadingScreen);
+    }
+
+    public void finishLoading() {
+        menuScreen = new MenuScreen(this);
+        setScreen(menuScreen);
+    }
+
+    public AssetManager getManager() {
+        return manager;
+    }
 }
