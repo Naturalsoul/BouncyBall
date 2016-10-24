@@ -2,6 +2,7 @@ package com.bouncyball;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Texture;
 import com.bouncyball.Screens.BaseScreen;
 import com.bouncyball.Screens.Levels.LevelOne;
 import com.bouncyball.Screens.LoadingScreen;
@@ -17,6 +18,7 @@ public class MainGame extends Game {
     @Override
     public void create() {
         manager = new AssetManager();
+        manager.load("player.png", Texture.class);
 
         loadingScreen = new LoadingScreen(this);
         setScreen(loadingScreen);

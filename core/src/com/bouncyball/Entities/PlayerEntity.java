@@ -58,7 +58,7 @@ public class PlayerEntity extends Actor {
         setPosition(Gdx.input.getX(), body.getPosition().y);
     }
 
-    private void detach() {
+    public void detach() {
         body.destroyFixture(fixture);
         world.destroyBody(body);
     }
