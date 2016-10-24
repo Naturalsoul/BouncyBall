@@ -3,6 +3,7 @@ package com.bouncyball;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.bouncyball.Screens.BaseScreen;
+import com.bouncyball.Screens.Levels.LevelOne;
 import com.bouncyball.Screens.LoadingScreen;
 import com.bouncyball.Screens.MenuScreen;
 
@@ -11,6 +12,7 @@ public class MainGame extends Game {
     private AssetManager manager;
 
     public BaseScreen loadingScreen, menuScreen;
+    public BaseScreen levelOne;
 
     @Override
     public void create() {
@@ -22,6 +24,7 @@ public class MainGame extends Game {
 
     public void finishLoading() {
         menuScreen = new MenuScreen(this);
+        levelOne = new LevelOne(this);
         setScreen(menuScreen);
     }
 

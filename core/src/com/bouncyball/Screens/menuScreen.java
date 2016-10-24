@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.bouncyball.MainGame;
+import com.bouncyball.Screens.Levels.LevelOne;
 
 public class MenuScreen extends BaseScreen {
 
@@ -16,10 +17,10 @@ public class MenuScreen extends BaseScreen {
     private Skin skin;
     private TextButton play, credits;
 
-    public MenuScreen(MainGame game) {
+    public MenuScreen(final MainGame game) {
         super(game);
 
-        stage = new Stage(new FitViewport(640, 360));
+        stage = new Stage(new FitViewport(360, 640));
         skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
         play = new TextButton("Play", skin);
         credits = new TextButton("Credits", skin);
@@ -28,6 +29,7 @@ public class MenuScreen extends BaseScreen {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 // TODO
+                game.setScreen(game.levelOne);
             }
         });
 
@@ -38,8 +40,8 @@ public class MenuScreen extends BaseScreen {
             }
         });
 
-        play.setPosition(stage.getWidth() / 3, stage.getHeight() - 100);
-        credits.setPosition(stage.getWidth() / 3, stage.getHeight() - 200);
+        play.setPosition(80, 350);
+        credits.setPosition(80, 250);
 
         play.setSize(200, 80);
         credits.setSize(200, 80);

@@ -19,11 +19,11 @@ public class LoadingScreen extends BaseScreen {
     public LoadingScreen(MainGame game) {
         super(game);
 
-        stage = new Stage(new FitViewport(640, 360));
+        stage = new Stage(new FitViewport(360, 640));
         skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
         loading = new Label("Loading...", skin);
-        loading.setPosition(320 - loading.getWidth() / 2, 180 - loading.getHeight() / 2);
+        loading.setPosition(180 - loading.getWidth() / 2, 320 - loading.getHeight() / 2);
         stage.addActor(loading);
     }
 
